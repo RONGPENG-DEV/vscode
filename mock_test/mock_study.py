@@ -43,6 +43,24 @@ class TestLogin(unittest.TestCase):
         res = get_request
         self.assertEqual({'username': 'admin'},res())
 
+    def test_03(self):
+        url="http://127.0.0.1:8001/get_login"   #自己搭的mock服务
+        data = {
+            "username":"wrp",
+            "password":"123456"
+        }
+        res = get_request(url,data)
+        print(res)
+
+    def test_04(self):
+        url="http://127.0.0.1:8001/post_login"  #自己搭的mock服务
+        data = {
+            "username":"wrp",
+            "password":"123456"
+        }
+        res = post_request(url,data)
+        print(res)        
+
 
 if __name__=="__main__":
     unittest.main()

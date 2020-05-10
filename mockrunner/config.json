@@ -1,0 +1,35 @@
+[{
+    "request":{
+        "method":"post",
+        "uri":"/post_login",
+        "forms":{
+            "username":"wrp",
+            "password":"123456"
+        }
+    },
+  
+    "response":{
+        "json":{
+            "user":"wrp",
+            "pwd":"123456",
+            "message":"test is a post test"
+        }
+    }
+
+},{
+    "request":{
+        "method":"get",
+        "uri":"/get_login",
+        "queries":{ 
+            "username":"wrp",
+            "password":"123456"
+        }
+    },
+    "response":{
+        "json":{
+            "user":"wrp",
+            "pwd":"123456",
+            "message":"test is a get test"
+        }
+    }
+}]
