@@ -5,9 +5,7 @@ data = {
     "username":"wrp",
     "password":"123456"
 }
-
-host = "http://www.baiu.com"
-class TestCase01(unittest.TestCase):
+class TestCase02(unittest.TestCase):
 
     def setUp(self):
         print("case开始执行")
@@ -23,7 +21,6 @@ class TestCase01(unittest.TestCase):
     def tearDownClass(cls):
         print("case类结束执行")
 
-    @unittest.skipIf(host!="http://www.baidu.com","这个case不执行")
     def test_01(self):
         data1 = {
             "username":"wrp",
@@ -42,8 +39,6 @@ class TestCase01(unittest.TestCase):
     def test_04(self):
         flag = False
         self.assertTrue(flag,msg="结果不为true")
-
-
     def test_05(self):
         flag = "111"
         flag1 = "111"
@@ -52,6 +47,8 @@ class TestCase01(unittest.TestCase):
         flag = "asdfsdghghdgfsd"
         s = "h"
         self.assertIn(s,flag,msg="字符未在字符串中")
+    
+
 
 
 if __name__ == "__main__":
@@ -71,7 +68,7 @@ if __name__ == "__main__":
     
 
     #使用list添加用例
-    # tests = [TestCase01('test_06'),TestCase01('test_02')]
+    # tests = [TestCase02('test_06'),TestCase02('test_02')]
     # suite.addTests(tests)
     # runner = unittest.TextTestRunner()
     # runner.run(suite)
