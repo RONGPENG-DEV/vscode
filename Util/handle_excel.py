@@ -4,21 +4,14 @@ import os
 base_path = os.getcwd()
 sys.path.append(base_path)
 
-
-open_excel = openpyxl.load_workbook(base_path+"/Case/imooc.xlsx")
-sheet_name = open_excel.sheetnames
-excel_value = open_excel[sheet_name[0]]
-print(excel_value)
-print(excel_value.cell(1,3).value)
-print(excel_value.max_row)
-
-
 class HandExcel:
+    def __init__(self,filename):
+        self.file_name = filename
     def load_excel(self):
         """
         加载excel
         """
-        open_excel = openpyxl.load_workbook(base_path+"/Case/imooc.xlsx")
+        open_excel = openpyxl.load_workbook(base_path+"/Cases/"+self.file_name)
         return open_excel
 
     def get_sheet_data(self,index=None):
@@ -26,8 +19,9 @@ class HandExcel:
         加载所有sheet
         """
         sheet_name = self.load_excel().sheetnames
+        #print(sheet_name)
         if index == None:
-            index = [0]
+            index = 0
         data = self.load_excel()[sheet_name[index]]
         return data
 
@@ -54,10 +48,12 @@ class HandExcel:
             row_list.append(i.value)
         return row_list
 
+# excel_data = HandExcel(filename)
 
 
 if __name__ == "__main__":
-    handle = HandExcel()
+    handle = HandExcel("test.xlsx")
+    print(handle.load_excel())
     print(handle.get_cell_value(2,5))
     print(handle.get_rows_value(2))
-
+    print(handle.get_sheet_data())
